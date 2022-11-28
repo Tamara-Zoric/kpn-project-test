@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ProductColorIcon from '~/components/elements/ProductColorIcon.vue'
+import ProductColorIcons from '~/components/style/ProductColorIcons.vue'
 import ProductImageWrapper from '~/components/elements/ProductImageWrapper.vue'
 
 const props = defineProps<{
@@ -22,7 +22,7 @@ const props = defineProps<{
     class="grid relative items-end bg-white border-r-2 p-2 bg-white border border-gray-200 rounded-lg shadow-md"
   >
     <div class="product absolute right-4 top-4 z-1">
-      <product-color-icon
+      <product-color-icons
         v-for="color in props.colors"
         :key="color"
         :color="color"
