@@ -6,13 +6,13 @@
       <nuxt-link class="px-4 hover:text-gray-500" to="/">
         <span>Mobiel</span>
       </nuxt-link>
-      <nuxt-link class="px-4 hover:text-gray-500" to="/products">
+      <nuxt-link class="px-4 hover:text-gray-500" to="/">
         <span>Internet</span>
       </nuxt-link>
-      <nuxt-link class="px-4 hover:text-gray-500" to="/products">
+      <nuxt-link class="px-4 hover:text-gray-500" to="/">
         <span>TV & Streaming</span>
       </nuxt-link>
-      <nuxt-link class="px-4 hover:text-gray-500" to="/products">
+      <nuxt-link class="px-4 hover:text-gray-500" to="/">
         <span>Tablets & Smartwatches</span>
       </nuxt-link>
     </div>
@@ -20,34 +20,34 @@
       <nuxt-link class="px-4 hover:text-gray-500" to="/">
         <span>Shop</span>
       </nuxt-link>
-      <nuxt-link class="px-4 hover:text-gray-500" to="/products">
+      <nuxt-link class="px-4 hover:text-gray-500" to="/">
         <span>Telefoons</span>
       </nuxt-link>
-      <nuxt-link class="px-4 hover:text-gray-500" to="/products">
+      <nuxt-link class="px-4 hover:text-gray-500" to="/">
         <span>Sim Only</span>
       </nuxt-link>
-      <nuxt-link class="px-4 hover:text-gray-500" to="/products">
+      <nuxt-link class="px-4 hover:text-gray-500" to="/">
         <span>Kids Sim</span>
       </nuxt-link>
       <nuxt-link class="px-4 hover:text-gray-500" to="/">
         <span>Mobiel Internet</span>
       </nuxt-link>
-      <nuxt-link class="px-4 hover:text-gray-500" to="/products">
+      <nuxt-link class="px-4 hover:text-gray-500" to="/">
         <span>Smartwatches</span>
       </nuxt-link>
-      <nuxt-link class="px-4 hover:text-gray-500" to="/products">
+      <nuxt-link class="px-4 hover:text-gray-500" to="/">
         <span>Accessoires</span>
       </nuxt-link>
-      <nuxt-link class="px-4 hover:text-gray-500" to="/products">
+      <nuxt-link class="px-4 hover:text-gray-500" to="/">
         <span>Tablets & MiFi</span>
       </nuxt-link>
-      <nuxt-link class="px-4 hover:text-gray-500" to="/products">
+      <nuxt-link class="px-4 hover:text-gray-500" to="/">
         <span>Prepaid</span>
       </nuxt-link>
-      <nuxt-link class="px-4 hover:text-gray-500" to="/products">
+      <nuxt-link class="px-4 hover:text-gray-500" to="/">
         <span>iPhone 14</span>
       </nuxt-link>
-      <nuxt-link class="px-4 hover:text-gray-500" to="/products">
+      <nuxt-link class="px-4 hover:text-gray-500" to="/">
         <span>Samsung S22</span>
       </nuxt-link>
     </div>
