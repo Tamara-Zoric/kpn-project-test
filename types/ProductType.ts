@@ -59,5 +59,5 @@ export type Product = {
 }
 
 export type Products = {
-  products: Product[] | undefined[]
+  products: Product[]
 }

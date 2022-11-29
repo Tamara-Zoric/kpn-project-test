@@ -1,16 +1,42 @@
 <script setup lang="ts">
 import ProductWrapper from '~/components/elements/ProductWrapper.vue'
-import { ProductAttributes, Products } from '~/types/ProductType'
+import { Product, ProductAttributes, Products } from '~/types/ProductType'
 import FilterWrapper from '~/components/elements/FilterWrapper.vue'
+import { useFilterStore } from '~/store/FilterStore'
 import { useProductStore } from '~/store/ProductStore'
 import { storeToRefs } from 'pinia'
-import { onBeforeMount, onMounted, ref } from 'vue'
+import { computed, onBeforeMount } from 'vue'
 
 const productStore = useProductStore()
+const filterStore = useFilterStore()
 
 const { products } = storeToRefs(productStore)
+const { selectedFilters } = storeToRefs(filterStore)
+
 onBeforeMount(() => {
   productStore.fetchProducts()
+})
+
+const filteredData = computed(() => {
+  if (!Object.keys(selectedFilters.value).length) {
+    return products.value.products
+  } else {
+    const allProducts = products.value.products
+    const filteredProducts: Product[] = []
+    if (allProducts) {
+      allProducts.filter((product: Product) => {
+        Object.entries(selectedFilters.value).forEach(([key, value]) => {
+          if (
+            value.values.includes(product[key as keyof Product] as string) ||
+            !value.values.length
+          ) {
+            filteredProducts.push(product)
+          }
+        })
+      })
+    }
+    return filteredProducts
+  }
 })
 
 const createPromotionAttributes = (attributes: ProductAttributes) => {
@@ -27,7 +53,7 @@ const createPromotionAttributes = (attributes: ProductAttributes) => {
   <filter-wrapper></filter-wrapper>
   <div class="grid grid-cols-3">
     <product-wrapper
-      v-for="product in products.products"
+      v-for="product in filteredData"
       id="product.id"
       :key="product.id"
       :promotion-attributes="createPromotionAttributes(product.attributes)"
