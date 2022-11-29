@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Dropdown from '~/components/elements/Dropdown.vue'
-import filters from '~/filters.json'
+import filters from '~/data/filters.json'
 
 const handleDropdownChange = (e: Event) => {
   console.log(e)
