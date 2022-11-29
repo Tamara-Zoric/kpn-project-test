@@ -11,8 +11,8 @@ const handleDropdownChange = (e: Event) => {
   <div class="flex bg-white mb-5 rounded">
     <dropdown
       v-for="(filter, key) in filters.filters"
-      :key="filter.key"
-      :name="key"
+      :key="key"
+      :name="filter.name"
       :options="filter.values"
       @change="handleDropdownChange"
     ></dropdown>
