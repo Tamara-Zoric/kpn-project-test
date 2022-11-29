@@ -8,14 +8,6 @@ const props = defineProps<{
   image: string
   hasPromotion: boolean
 }>()
-
-const promotionImageLink = () => {
-  if (
-    props.promotionAttributes.handset_cat_promotion_sticker === 'snelpakker'
-  ) {
-    return '/assets/images/bfsnelpakker.svg'
-  }
-}
 </script>
 
 <template>
@@ -23,15 +15,17 @@ const promotionImageLink = () => {
     <a>
       <div class="relative">
         <img :src="props.image" class="text-center h-60 w-max" />
-        <div v-if="props.hasPromotion" class="absolute left-0 bottom-5">
+        <div v-if="props.hasPromotion" class="absolute left-1 bottom-5">
           <img
-            :src="promotionImageLink"
+            v-if="
+              props.promotionAttributes.handset_cat_promotion_sticker ===
+              'snelpakker'
+            "
+            src="~/assets/images/bfsnelpakker.svg"
             :alt="props.promotionAttributes.handset_cat_promotion_sticker"
-            class="max-w-2xl h-10"
+            class="max-w-3xl h-20"
           />
-          <div
-            :class="`bg-${props.promotionAttributes.promotion_bg_color} block`"
-          >
+          <div class="bg-green-500 max-w-[15rem] rounded px-2">
             {{ props.promotionAttributes.promotion_label }}
           </div>
         </div>
