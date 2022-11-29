@@ -1,10 +1,17 @@
 <script setup lang="ts">
 import ProductWrapper from '~/components/elements/ProductWrapper.vue'
-import products from '~/products.json'
-import { ProductAttributes } from '~/types/ProductType'
+import { ProductAttributes, Products } from '~/types/ProductType'
 import FilterWrapper from '~/components/elements/FilterWrapper.vue'
+import { useProductStore } from '~/store/ProductStore'
+import { storeToRefs } from 'pinia'
+import { onBeforeMount, onMounted, ref } from 'vue'
 
-const productData = products.products
+const productStore = useProductStore()
+
+const { products } = storeToRefs(productStore)
+onBeforeMount(() => {
+  productStore.fetchProducts()
+})
 
 const createPromotionAttributes = (attributes: ProductAttributes) => {
   const { promotion_label, handset_cat_promotion_sticker, promotion_bg_color } =
@@ -20,7 +27,7 @@ const createPromotionAttributes = (attributes: ProductAttributes) => {
   <filter-wrapper></filter-wrapper>
   <div class="grid grid-cols-3">
     <product-wrapper
-      v-for="product in productData"
+      v-for="product in products.products"
       id="product.id"
       :key="product.id"
       :promotion-attributes="createPromotionAttributes(product.attributes)"
