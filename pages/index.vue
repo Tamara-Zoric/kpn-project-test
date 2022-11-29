@@ -16,7 +16,7 @@ const { selectedFilters } = storeToRefs(filterStore)
 onBeforeMount(() => {
   productStore.fetchProducts()
 })
-
+//this need to be refactored
 const filteredData = computed(() => {
   if (!Object.keys(selectedFilters.value).length) {
     return products.value.products
@@ -26,11 +26,46 @@ const filteredData = computed(() => {
     if (allProducts) {
       allProducts.filter((product: Product) => {
         Object.entries(selectedFilters.value).forEach(([key, value]) => {
-          if (
-            value.values.includes(product[key as keyof Product] as string) ||
-            !value.values.length
-          ) {
-            filteredProducts.push(product)
+          const filterType = typeof product[key as keyof Product]
+          switch (filterType) {
+            case 'string': {
+              if (
+                value.values.includes(
+                  product[key as keyof Product] as string
+                ) ||
+                !value.values.length
+              ) {
+                filteredProducts.push(product)
+              }
+              break
+            }
+
+            case 'boolean': {
+              const filterValues = value.values.map((value) => {
+                return value === 'Ja'
+              })
+              if (
+                filterValues.includes(
+                  product[key as keyof Product] as boolean
+                ) ||
+                !value.values.length
+              ) {
+                filteredProducts.push(product)
+              }
+              break
+            }
+            case 'object': {
+              const productValues = product[key as keyof Product] as string[]
+              if (
+                value.values.some((value) => {
+                  if (productValues.includes(value)) return value
+                }) ||
+                !value.values.length
+              ) {
+                filteredProducts.push(product)
+              }
+              break
+            }
           }
         })
       })

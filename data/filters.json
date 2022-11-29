@@ -18,16 +18,14 @@
     "colors": {
       "name": "Kleur",
       "values": [
-        "Zwart",
-        "Zilver",
-        "Grijs",
-        "Blauw",
-        "Goud",
-        "Wit",
-        "Roze",
-        "Rood",
-        "Goren",
-        "Overig"
+        "ZWART",
+        "ZILVER",
+        "GRIJS",
+        "BLAUW",
+        "GOUD",
+        "WIT",
+        "ROZE",
+        "ROOD"
       ]
     },
     "has_5g": {
