@@ -1,10 +1,62 @@
 {
   "filters": {
-    "Merk":["Apple", "Smasung", "OPPO", "Xiaomi", "Motorola", "Nokia", "Emporia", "OnePlus", "Fairphone", "Alcatel"],
-    "Kleur":["Zwart", "Zilver", "Grijs", "Blauw", "Goud", "Wit", "Roze", "Rood", "Goren", "Overig"],
-    "5G":["Ja", "Nee"],
-    "Besturingssysteem":["Android", "iOs"],
-    "E-sim":["Ja", "Nee"],
-    "Refurbished":["Ja", "Nee"]
+    "Merk": {
+      "key": "manufacturer",
+      "values": [
+        "Apple",
+        "Smasung",
+        "OPPO",
+        "Xiaomi",
+        "Motorola",
+        "Nokia",
+        "Emporia",
+        "OnePlus",
+        "Fairphone",
+        "Alcatel"
+      ]
+    },
+    "Kleur": {
+      "key": "colors",
+      "values": [
+        "Zwart",
+        "Zilver",
+        "Grijs",
+        "Blauw",
+        "Goud",
+        "Wit",
+        "Roze",
+        "Rood",
+        "Goren",
+        "Overig"
+      ]
+    },
+    "5G": {
+      "key": "has_5g",
+      "values": [
+        "Ja",
+        "Nee"
+      ]
+    },
+    "Besturingssysteem": {
+      "key": "operating_system",
+      "values": [
+        "Android",
+        "iOs"
+      ]
+    },
+    "E-sim": {
+      "key": "has_esim",
+      "values": [
+        "Ja",
+        "Nee"
+      ]
+    },
+    "Refurbished": {
+      "key": "refurbished",
+      "values": [
+        "Ja",
+        "Nee"
+      ]
+    }
   }
 }
