@@ -2,6 +2,7 @@
 import { DropdownEmitObject } from '~/types/Dropdown'
 
 const props = defineProps<{
+  id: string
   name: string
   options: string[]
 }>()
@@ -18,12 +19,12 @@ const handleClick = (option: string) => {
     selectedValues.push(option)
   }
 
-  emit('change', { name: props.name, values: selectedValues })
+  emit('change', { id: props.id, name: props.name, values: selectedValues })
 }
 </script>
 
 <template>
-  <div class="relative inline-block group">
+  <div :id="props.id" class="relative inline-block group">
     <button
       class="inline-flex items-center px-4 py-2 font-semibold text-gray-800"
     >
@@ -39,22 +40,22 @@ const handleClick = (option: string) => {
       </svg>
     </button>
     <ul class="absolute z-10 hidden pt-1 text-gray-700 group-hover:block">
-      <li v-for="option in options" :key="option">
-        <div
-          class="block flex items-center hover:bg-gray-200 bg-white px-4 py-2 whitespace-no-wrap"
+      <li
+        v-for="option in options"
+        :key="option"
+        class="block flex items-center hover:bg-gray-200 bg-white px-4 py-2 whitespace-no-wrap"
+      >
+        <input
+          :id="`checkbox-${name}${option}`"
+          type="checkbox"
+          class="h-4 w-4 rounded border-gray-300 bg-gray-600 text-gray-100 ring-offset-gray-700 focus:ring-1 focus:ring-blue-500"
+          @change="handleClick(option)"
+        />
+        <label
+          :for="`checkbox-${name}${option}`"
+          class="pl-2 w-full rounded text-sm font-medium text-gray-700 cursor-pointer"
+          >{{ option }}</label
         >
-          <input
-            :id="`checkbox-${name}${option}`"
-            type="checkbox"
-            class="h-4 w-4 rounded border-gray-300 bg-gray-600 text-gray-100 ring-offset-gray-700 focus:ring-1 focus:ring-blue-500"
-            @click="handleClick(option)"
-          />
-          <label
-            :for="`checkbox-${name}${option}`"
-            class="ml-2 w-full rounded text-sm font-medium text-gray-900 dark:text-gray-300"
-            >{{ option }}</label
-          >
-        </div>
       </li>
     </ul>
   </div>

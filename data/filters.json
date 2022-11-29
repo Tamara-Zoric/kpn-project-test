@@ -44,7 +44,7 @@
         "iOs"
       ]
     },
-    "E-has_esim": {
+    "has_esim": {
       "name": "E-sim",
       "values": [
         "Ja",
